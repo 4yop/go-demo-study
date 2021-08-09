@@ -1,12 +1,17 @@
 package enum
 
-import "fmt"
-
 const SHOW int = 1;
 const HIDE int = 2;
 
+var statusMap = map[int]string{SHOW:"显示",HIDE:"隐藏"};
 
-func getStatus (status int) {
-	var statusMap = map[int]string{SHOW:"显示",HIDE:"隐藏"};
-	fmt.Println(statusMap);
+const NOTKNOW string = "未知类型"
+
+func GetStatus(status int) string {
+
+	if (statusMap[status] == "") {
+		return NOTKNOW;
+	}
+	return statusMap[status];
+
 }
