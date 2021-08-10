@@ -11,15 +11,16 @@ func main() {
 	switch a {
 	case 2:
 		fmt.Println("sdfsdf")
-		break
 	case 1:
 		fmt.Println("sdfgsdgsdgsdgh")
-		break
+		//页执行下一个case
+		fallthrough
+	case 3 :
+		fmt.Println("qq")
+		//中断
+		break;
 	default:
 		fmt.Println("dfsgdfgdfffffffffffffff")
-		break
-
-
 	}
 
 }
