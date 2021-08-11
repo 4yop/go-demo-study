@@ -9,7 +9,6 @@ func main () {
 	aaa["kkk"] = 1
 	aaa["ppp"] = 2
 
-
 	bbb := make(map[int]int);
 
 	bbb[1] = 3
@@ -18,8 +17,9 @@ func main () {
 
 	fmt.Println(aaa,bbb)
 
-	for key, value := range aaa {
-		fmt.Printf("%s:%d \n",key,value)
-	}
+	var city = map[string]int{"go":100,"java":101}
+	fmt.Println(city)
+	fmt.Println(city["go"])
+
 
 }
