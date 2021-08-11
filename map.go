@@ -16,4 +16,10 @@ func main () {
 	bbb[2] = 5
 
 	fmt.Println(aaa,bbb)
+
+	var city = map[string]int{"go":100,"java":101}
+	fmt.Println(city)
+	fmt.Println(city["go"])
+
+
 }
