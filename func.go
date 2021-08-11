@@ -34,6 +34,8 @@ func main()  {
 
 	fmt.Println(getSum(1))
 	fmt.Println(getSum(100))
+
+	fmt.Println(opera(1,1000,add))
 }
 
 
@@ -65,4 +67,17 @@ func getSum (n int) (int){
 		return 1
 	}
 	return getSum(n-1) + n
+}
+
+func opera (n1 int,n2 int,jisuan func(int,int)(int)) (int){
+	res := jisuan(n1,n2)
+	return res;
+}
+
+func add(n1 int,n2 int)  (int){
+	return int(n1 + n2)
+}
+
+func cut(n1 int,n2 int) (int){
+	return int(n1 - n2)
 }
