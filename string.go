@@ -41,4 +41,23 @@ func main()  {
 
 	isContains3 := strings.Contains(s9,s4)
 	fmt.Printf("%s 有包含 %s ? %t \n",s9,s4,isContains3)
+
+	s11 := "ABCDEFa"
+	s12 := 'A'
+	isContainsRune1 := strings.ContainsRune(s11,s12)
+	fmt.Printf("%s 有包含UTF-8码值 %d ? %t \n",s11,s12,isContainsRune1)
+
+	s13 := "123456789"
+	s14 := "13579"
+	isContainsAny1 := strings.ContainsAny(s13,s14)
+	fmt.Printf("%s 有一样的字符和 %s ? %t \n",s13,s14,isContainsAny1)
+
+	isContainsAny2 := strings.ContainsAny(s13,s4)
+	fmt.Printf("%s 有一样的字符和 %s ? %t \n",s13,s4,isContainsAny2)
+
+	isContainsAny3 := strings.ContainsAny(s13,s5)
+	fmt.Printf("%s 有一样的字符和 %s ? %t \n",s13,s5,isContainsAny3)
+
+	isContainsAny4 := strings.ContainsAny(s4,s5)
+	fmt.Printf("%s 有一样的字符和 %s ? %t \n",s4,s5,isContainsAny4)
 }
