@@ -36,6 +36,16 @@ func main()  {
 	fmt.Println(getSum(100))
 
 	fmt.Println(opera(1,1000,add))
+
+	fmt.Println("------------------------")
+	func1 := closure()
+
+	fmt.Println(func1())
+	fmt.Println(func1())
+	fmt.Println(func1())
+
+
+
 }
 
 
@@ -80,4 +90,14 @@ func add(n1 int,n2 int)  (int){
 
 func cut(n1 int,n2 int) (int){
 	return int(n1 - n2)
+}
+
+
+func closure () (func()(int)){
+	i := 0
+	res := func() (int) {
+		i++
+		return i
+	}
+	return res
 }
