@@ -44,8 +44,8 @@ func main()  {
 	fmt.Println(func1())
 	fmt.Println(func1())
 
-
-
+	var aaa  = add
+	fmt.Println(aaa(1,1))
 }
 
 

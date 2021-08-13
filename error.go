@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+	"os"
+)
 
 func main()  {
 	//defer fmt.Println("1")
@@ -15,4 +19,19 @@ func main()  {
 			fmt.Printf(string(n))
 		}(i * 2)
 	}
+
+	f,err := os.Open("text.txt")
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	fmt.Println(f)
+
+}
+
+func checkAge(age int) error {
+	if age > 0 {
+		return nil
+	}
+	return errors.New("错误")
 }

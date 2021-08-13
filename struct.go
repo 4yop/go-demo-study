@@ -30,9 +30,31 @@ func main(){
 
 	fmt.Println(golang,xiaoming)
 
-	//arr := [5]int{1,2,3,4,5}
+	arr := []int{1,2,3,4,5}
+	fmt.Println(arr)
 
+	p := new(People1)
+	fmt.Println(*p)
+
+	strc := struct {
+		name string
+		age int
+	}{"lzh",1}
+	fmt.Println(strc)
+	var d dnf = dnf{"l",1}
+	fmt.Println(d)
+
+	ln := ListNode{}
+	ln.val = 1
+
+
+
+	fmt.Println(ln)
 }
 
-type arr [5] int;
+type dnf struct {
+	string
+	int
+
+}
 

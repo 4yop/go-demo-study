@@ -1,14 +1,13 @@
 package main
 
-
-
 import (
-	"fmt";
-
+	"fmt"
+	"./enum"
 )
 
 
 func main()  {
 	fmt.Println(1);
 
+	enum.GetStatus(1)
 }

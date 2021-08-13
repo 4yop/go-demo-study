@@ -53,15 +53,44 @@ func show (name string,param interface{}) {
 		fmt.Println("wrong type!")
 	}
 }
-
+type s1 int
 func main()  {
-	rect := rect{1,3}
-
-	show("rect",rect)
+	//rect := rect{1,3}
+	//
+	//show("rect",rect)
 
 	c := circle{100}
 	show("circle",c);
 
 	show("test","test");
+
+
+	map1 := make(map[interface{}]interface{})
+
+	map1[1] = 2
+	map1["p"] = "q"
+
+	fmt.Println(map1)
+
+	var aaa interface{};
+
+	aaa = 1
+
+	aaa = "q"
+
+	fmt.Println(aaa)
+	var s s1 = 1
+	fmt.Println(s)
 }
 
+type myfun func(int,int)(int)
+
+func testq(a int, b int) (myfun) {
+	return func(i2 int, i22 int) int {
+		return i2 + i22
+	}
+}
+
+//起别名
+
+type sdsdrdf = int

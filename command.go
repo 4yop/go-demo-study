@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main()  {
-	fmt.Println("go doc package func")
+	fmt.Println("go doc package.go func")
 	fmt.Println("go get -x [包的ur]")
 	fmt.Println("godoc -http=localhost:9527")
 
