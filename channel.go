@@ -8,21 +8,18 @@ func main() {
 	ch := make(chan int)
 
 
-	ch1 := make(chan int)
 
+	ch <- 3
 
 
 	go func() {
+		fmt.Println("go func 里1",<-ch)
 		ch <- 1
-		//value := <-ch
-		ch1 <- 1
-		fmt.Println(<-ch)
-
+		fmt.Println("go func 里2",<-ch)
 	}()
 
 	data := <-ch
 
 	fmt.Println(data)
 
-	fmt.Println(<-ch1)
 }
