@@ -2,22 +2,37 @@ package main
 
 import (
 	"fmt"
+	"strconv"
 	"sync"
+	"time"
 )
 
 var wg sync.WaitGroup
+
+type Goods struct {
+	stock int
+}
+
 func main()  {
-	wg.Add(2)
+	//wg.Add(10)
+	//
+	//go func1()
+	//go func2()
+	//
+	//fmt.Println("略略略略略略略")
+	//
+	//wg.Wait()
+	//
+	//fmt.Println("啊啊啊啊啊啊啊")
+	goods := Goods{stock: 10}
+	fmt.Println(goods)
 
-	go func1()
-	go func2()
-
-	fmt.Println("略略略略略略略")
-
-	wg.Wait()
-
-	fmt.Println("啊啊啊啊啊啊啊")
-
+	for i := 0; i < 20; i++ {
+		go goods.cutStock(i)
+	}
+	//goods.cutStock(2)
+	time.Sleep(11*time.Second)
+	fmt.Println(goods)
 }
 
 func func1 () {
@@ -32,4 +47,19 @@ func func2 () {
 		fmt.Println("func2",i)
 	}
 	wg.Done()
+}
+
+
+func (goods *Goods) cutStock (id int) {
+	for i := 0; i < 12; i++ {
+		if goods.stock <= 0 {
+			fmt.Println("id"+strconv.Itoa(id)+" cutStock :","没有库存了")
+			break;
+		}
+		time.Sleep(1*time.Second)
+		goods.stock--;
+		stock := goods.stock
+		fmt.Println("id"+strconv.Itoa(id)+" cutStock 减1:",stock)
+	}
+	//defer wg.Done()
 }
