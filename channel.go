@@ -9,12 +9,7 @@ func main() {
 
 
 
-	//ch <- 3
-
-
 	go func() {
-		a := <-ch
-		fmt.Println("go func 里1",a)
 		ch <- 1
 		b := <-ch
 		fmt.Println("go func 里2",b)
