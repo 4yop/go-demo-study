@@ -9,13 +9,15 @@ func main() {
 
 
 
-	ch <- 3
+	//ch <- 3
 
 
 	go func() {
-		fmt.Println("go func 里1",<-ch)
+		a := <-ch
+		fmt.Println("go func 里1",a)
 		ch <- 1
-		fmt.Println("go func 里2",<-ch)
+		b := <-ch
+		fmt.Println("go func 里2",b)
 	}()
 
 	data := <-ch
