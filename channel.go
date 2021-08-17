@@ -16,7 +16,9 @@ func main() {
 		ch1 <- 1
 	}()
 
-	fmt.Println(<-ch)
+	data := <-ch
+
+	fmt.Println(data)
 
 	fmt.Println(<-ch1)
 }
