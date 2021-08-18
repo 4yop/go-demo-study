@@ -18,11 +18,11 @@ func main() {
 	ch1 := make(chan int)
 
 	go msg(ch1)
-	fmt.Println()
+	fmt.Println("21行")
 	for v := range ch1 {
 		fmt.Println("ch",v)
 	}
-
+	fmt.Println("25行")
 
 
 }
