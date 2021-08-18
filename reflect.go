@@ -10,6 +10,6 @@ func main()  {
 	value := reflect.ValueOf(a)
 	fmt.Println(value)
 	i3 := value.Interface().(float64)
-
+	
 	fmt.Println(i3)
 }
