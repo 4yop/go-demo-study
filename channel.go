@@ -25,9 +25,16 @@ func main() {
 	fmt.Println("25行")
 
 	//缓冲 管道
+	ch3 := make(chan int)
 
+	go msg(ch3)
+
+	for {
+		fmt.Println(<-ch3)
+	}
 
 }
+
 
 
 func msg (ch chan int) {
