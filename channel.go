@@ -18,9 +18,9 @@ func main() {
 	ch1 := make(chan int)
 
 	go msg(ch1)
-
-	for k, v := range ch1 {
-		fmt.Println("ch",k,v)
+	fmt.Println()
+	for v := range ch1 {
+		fmt.Println("ch",v)
 	}
 
 
