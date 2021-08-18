@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 )
-
+var ch
 func main() {
 	ch := make(chan int)
 	fmt.Println(ch)
@@ -19,4 +19,9 @@ func main() {
 	fmt.Println(<-ch)
 
 	fmt.Println(<-ch1)
+}
+
+
+func msg () {
+	ch
 }
