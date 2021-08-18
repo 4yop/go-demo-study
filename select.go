@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 func main()  {
 	ch1 := make(chan int)
@@ -11,7 +14,8 @@ func main()  {
 			fmt.Println("<-ch1",<-ch1)
 		case <-ch2:
 			fmt.Println("<-ch2",<-ch2)
-		case 
+		case <-time.After(3*time.Second):
+			
 		default:
 			fmt.Println("default")
 	}
