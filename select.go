@@ -10,8 +10,9 @@ func main()  {
 	ch2 := make(chan int)
 
 	go func() {
+		time.Sleep(3*time.Second)
 		ch1 <- 99
-		time.Sleep(1*time.Second)
+
 	}()
 
 	select {
