@@ -24,6 +24,8 @@ func main() {
 	}
 	fmt.Println("25行")
 
+	//缓冲 管道
+
 
 }
 
