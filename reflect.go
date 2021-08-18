@@ -16,8 +16,8 @@ func main()  {
 	fmt.Println(value)
 	i3 := value.Interface().(float64)
 
-
-	reflect.ValueOf(people)
+	abc := people{}
+	fmt.Println(reflect.TypeOf(abc))
 
 	fmt.Println(i3)
 }
