@@ -15,7 +15,7 @@ func main()  {
 		case <-ch2:
 			fmt.Println("<-ch2",<-ch2)
 		case <-time.After(3*time.Second):
-			
+			fmt.Println()
 		default:
 			fmt.Println("default")
 	}
