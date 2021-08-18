@@ -29,8 +29,8 @@ func main() {
 
 	go msg(ch3)
 
-	for {
-		fmt.Println(<-ch3)
+	for v := range ch3 {
+		fmt.Println("ch",v,"len")
 	}
 
 }
