@@ -20,6 +20,8 @@ func main()  {
 			fmt.Println("<-ch1")
 		case <-ch2:
 			fmt.Println("<-ch2")
+		case <-time.After(1*time.Second):
+			fmt.Println("111")
 		case <-time.After(3*time.Second):
 			fmt.Println("3333")
 		//default:
