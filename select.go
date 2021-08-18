@@ -10,9 +10,9 @@ func main()  {
 	ch2 := make(chan int)
 
 	go func() {
-		time.Sleep(3*time.Second)
-		ch1 <- 99
 
+		ch1 <- 99
+		time.Sleep(3*time.Second)
 	}()
 
 	select {
@@ -20,10 +20,10 @@ func main()  {
 			fmt.Println("<-ch1")
 		case <-ch2:
 			fmt.Println("<-ch2")
-		case <-time.After(1*time.Second):
-			fmt.Println("111")
 		case <-time.After(3*time.Second):
 			fmt.Println("3333")
+		case <-time.After(1*time.Second):
+		fmt.Println("111")
 		//default:
 		//	fmt.Println("default")
 	}
