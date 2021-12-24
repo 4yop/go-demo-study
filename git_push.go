@@ -4,12 +4,18 @@ import (
 	"fmt"
 	"os"
 	"os/exec"
+	"time"
 )
 
 var path string
 func main() {
 	path, _ := os.Getwd()
 	fmt.Println("目录:",path)
+
+	timer := time.NewTicker(10*time.Second)
+
+	for {
+		fmt.Println("开始咯",<-timer.C)
 
 		output, err := runCmd("git", "add", "-A")
 		if err != nil {
@@ -26,7 +32,7 @@ func main() {
 			fmt.Println("err3:", err)
 		}
 		fmt.Println(output)
-
+	}
 }
 
 func runCmd(name string, arg ...string) (string,error) {
