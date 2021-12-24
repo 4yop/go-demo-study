@@ -12,7 +12,7 @@ func main() {
 	path, _ := os.Getwd()
 	fmt.Println("目录:",path)
 
-	timer := time.NewTicker(10*time.Second)
+	timer := time.NewTicker(180*time.Second)
 
 	for {
 		fmt.Println("开始咯",<-timer.C)

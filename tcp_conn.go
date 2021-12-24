@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net"
+	"os"
 )
 
 func main()  {
@@ -13,13 +14,22 @@ func main()  {
 		return
 	}
 	defer conn.Close()
+	
+	go func() {
+		for  {
 
+		}
+	}()
 
 	_,err = conn.Write([]byte("are you ok?"))
 	if err != nil {
 		fmt.Println(err)
 	}
 
+	for{
+		str := make([]byte,1024)
+		os.Stdin.Read(str)
+	}
 
 
 }
