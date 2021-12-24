@@ -21,7 +21,7 @@ func handle(conn net.Conn) {
 		msg := string(b[:len])
 		fmt.Println(msg)
 
-		if msg == "exit\n" {
+		if msg == "exit" {
 			fmt.Println("退出")
 			return
 		}
