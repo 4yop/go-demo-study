@@ -18,10 +18,10 @@ func handle(conn net.Conn) {
 			return
 		}
 		//len-1 不要\n
-		msg := string(b[:len-1])
+		msg := string(b[:len])
 		fmt.Println(msg)
 
-		if msg == "exit" {
+		if msg == "exit\n" {
 			fmt.Println("退出")
 			return
 		}

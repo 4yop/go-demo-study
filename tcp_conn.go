@@ -18,7 +18,12 @@ func main()  {
 	go func() {
 		b := make([]byte,1024)
 		for  {
-			
+			n,err := conn.Read(b)
+			if err != nil {
+				fmt.Println(err)
+				return
+			}
+			fmt.Println(string(b[:n]))
 		}
 	}()
 
@@ -29,8 +34,9 @@ func main()  {
 		n,err := os.Stdin.Read(b)//读键盘内容
 		if err != nil {
 			fmt.Println(err)
+			return
 		}
-		fmt.Println(string(b[:n]))
+		fmt.Println("键盘:",string(b[:n]))
 
 		conn.Write(b[:n])
 
