@@ -4,28 +4,32 @@ import (
 	"fmt"
 )
 
+//chan int 正常的非单向
+//chan <-int  单向，只能写
+//<-chan int 单向 只能读
+
 func main() {
 	ch := make(chan int)
 
 
-<<<<<<< HEAD
+
 
 	go func() {
 		ch <- 1
 		b := <-ch
-		fmt.Println("go func 里2",b)
-=======
+		fmt.Println("go func 里2", b)
+	}()
+
 	go func() {
 		ch <- 1
->>>>>>> 28f9a19cbe4a8af61d586b62e4170be6688c7635
+
 	}()
 
 	data := <-ch
 
 	fmt.Println(data)
 
-<<<<<<< HEAD
-=======
+
 	ch1 := make(chan int)
 
 	go msg(ch1)
@@ -55,5 +59,4 @@ func msg (ch chan int) {
 		ch <- i
 	}
 	close(ch)
->>>>>>> 28f9a19cbe4a8af61d586b62e4170be6688c7635
 }
