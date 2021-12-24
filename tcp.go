@@ -18,7 +18,8 @@ func handle(conn net.Conn) {
 			return
 		}
 		//len-1 不要\n
-		msg := string(b[:len])
+		// \r\n
+		msg := string(b[:len-2])
 		fmt.Println(msg)
 
 		if msg == "exit" {
