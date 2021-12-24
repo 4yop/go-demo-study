@@ -16,19 +16,24 @@ func main()  {
 	defer conn.Close()
 	
 	go func() {
+		b := make([]byte,1024)
 		for  {
-
+			
 		}
 	}()
 
-	_,err = conn.Write([]byte("are you ok?"))
-	if err != nil {
-		fmt.Println(err)
-	}
 
+	b := make([]byte,1024)
 	for{
-		str := make([]byte,1024)
-		os.Stdin.Read(str)
+
+		n,err := os.Stdin.Read(b)//读键盘内容
+		if err != nil {
+			fmt.Println(err)
+		}
+		fmt.Println(string(b[:n]))
+
+		conn.Write(b[:n])
+
 	}
 
 
