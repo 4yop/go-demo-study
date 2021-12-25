@@ -17,17 +17,24 @@ func conn() net.Conn {
 }
 
 func main() {
-	defer recover()
-	tcpConn := conn()
-	fmt.Println(tcpConn)
+	//tcpConn := conn()
+	//defer tcpConn.Close()
+	//fmt.Println(tcpConn)
 
+
+
+
+
+}
+
+
+func getInputFileName() (string) {
 	var filename string
-	n,err := fmt.Scanln(&filename)
+	_,err := fmt.Scanln(&filename)
 	if err != nil {
-		fmt.Println(err)
-		return
+		fmt.Println("输入出错")
+		panic(err)
 	}
-
-
-	defer tcpConn.Close()
+	fmt.Println(filename)
+	return filename
 }
