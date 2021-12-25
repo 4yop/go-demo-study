@@ -36,8 +36,6 @@ func main() {
 }
 
 func runCmd(name string, arg ...string) (string,error) {
-	 // 从配置文件中获取当前git仓库的路径
-
 	cmd := exec.Command(name, arg...)
 	cmd.Dir = path // 指定工作目录为git仓库目录
 	//cmd.Stderr = os.Stderr
