@@ -5,18 +5,22 @@ import (
 	"net"
 )
 
-var conn net.Conn
 
-func init() {
-	conn,err := net.Dial("tcp","127.0.0.1:789")
+
+func conn() net.Conn {
+	tcpConn,err := net.Dial("tcp","127.0.0.1:789")
 	if err != nil {
+		fmt.Println(err)
 		panic("tcp连接失败")
 	}
+	return tcpConn
 }
 
 func main() {
+	tcpConn := conn()
+	fmt.Println(tcpConn)
 
-	fmt.Println(conn)
+	fmt.Scan()
 
-	defer conn.Close()
+	defer tcpConn.Close()
 }
