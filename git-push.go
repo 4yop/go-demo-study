@@ -12,26 +12,25 @@ func main() {
 	path, _ := os.Getwd()
 	fmt.Println("目录:",path)
 
-
+	cmds := [][]string{
+		{"git","pull"},
+		{"git", "add", "-A"},
+		{"git", "commit", "-m","go study"},
+		{"git", "push"},
+	}
 
 	for {
+		fmt.Println("-------------")
 		fmt.Println("开始咯")
-
-		output, err := runCmd("git", "add", "-A")
-		if err != nil {
-			fmt.Println("err1:", err)
+		for _, cmd := range cmds {
+			fmt.Println(cmd)
+			output, err := runCmd(cmd[0],cmd[1:]...)
+			if err != nil {
+				fmt.Println("err1:", err)
+			}
+			fmt.Println(output)
 		}
-		fmt.Println(output)
-		output, err = runCmd("git", "commit", "-m","go study")
-		if err != nil {
-			fmt.Println("err2:", err)
-		}
-		fmt.Println(output)
-		output, err = runCmd("git", "push")
-		if err != nil {
-			fmt.Println("err3:", err)
-		}
-		fmt.Println(output)
+		fmt.Println("-------------")
 		time.Sleep(3*60*time.Second)
 	}
 }
