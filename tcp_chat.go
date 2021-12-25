@@ -32,7 +32,7 @@ func main() {
 		}
 		go addClient(conn)
 		go checkStatus(conn)
-
+		defer conn.Close()
 	}
 
 }
