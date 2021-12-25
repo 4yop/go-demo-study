@@ -32,7 +32,10 @@ func main() {
 	}
 	if fileInfo.IsDir() {
 		fmt.Println("这是目录")
+		return
 	}
+
+	
 
 }
 
