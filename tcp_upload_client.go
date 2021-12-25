@@ -26,7 +26,14 @@ func main() {
 	filename := getInputFileName()
 	fmt.Println(filename)
 	fileInfo,err :=os.Stat(filename)
-	fmt.Println(err)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	if fileInfo.IsDir() {
+		fmt.Println("这是目录")
+	}
+
 }
 
 
