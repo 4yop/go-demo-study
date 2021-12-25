@@ -17,10 +17,17 @@ func conn() net.Conn {
 }
 
 func main() {
+	defer recover()
 	tcpConn := conn()
 	fmt.Println(tcpConn)
 
-	fmt.Scan()
+	var filename string
+	n,err := fmt.Scanln(&filename)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
 
 	defer tcpConn.Close()
 }
