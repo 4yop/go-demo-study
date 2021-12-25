@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net"
+	"os"
 )
 
 
@@ -22,19 +23,20 @@ func main() {
 	//fmt.Println(tcpConn)
 
 
-
-
-
+	filename := getInputFileName()
+	fmt.Println(filename)
+	fileInfo,err :=os.Stat(filename)
+	fmt.Println(err)
 }
 
 
 func getInputFileName() (string) {
+	fmt.Println("请输入文件完整路径:")
 	var filename string
 	_,err := fmt.Scanln(&filename)
 	if err != nil {
 		fmt.Println("输入出错")
 		panic(err)
 	}
-	fmt.Println(filename)
 	return filename
 }
