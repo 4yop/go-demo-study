@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"net"
 	"os"
 )
@@ -34,13 +35,46 @@ func main() {
 		fmt.Println("这是目录")
 		return
 	}
+	fmt.Println(fileInfo.Name())
 
 
+	tcpConn := conn()
+	defer tcpConn.Close()
+
+
+	tcpConn.Write([]byte(fileInfo.Name()))
+	sendFile(filename,tcpConn)
 
 }
 
 
+
+func sendFile(filename string,conn net.Conn) {
+	file,err := os.Open(filename)
+	if err != nil {
+		panic(err)
+	}
+	b := make([]byte,1024)
+	for  {
+		n,err := file.Read(b)
+		if err == io.EOF {
+			fmt.Println("读完了")
+			return
+		}
+		fmt.Println(string(b[:n]))
+		_,err = conn.Write(b[:n])
+		if err != nil {
+			fmt.Println(err)
+			return
+		}
+	}
+}
+
+//获取输入的文件名
 func getInputFileName() (string) {
+
+	return "C:\\Users\\Administrator\\go\\src\\go-demo-study\\for.go"
+
 	fmt.Println("请输入文件完整路径:")
 	var filename string
 	_,err := fmt.Scanln(&filename)
