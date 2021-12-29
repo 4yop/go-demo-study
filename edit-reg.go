@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"golang.org/x/sys/windows/registry"
 	"os/exec"
-	"time"
 )
 
 func main() {
@@ -41,6 +40,6 @@ func main() {
 	}
 
 	fmt.Println("改成功为:",newVal,"等3秒重启")
-	time.Sleep(120*time.Second)
+
 	exec.Command("shutdown","-r","-t","3").Run()
 }

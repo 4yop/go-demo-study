@@ -72,9 +72,6 @@ func sendFile(filename string,conn net.Conn) {
 
 //获取输入的文件名
 func getInputFileName() (string) {
-
-	return "C:\\Users\\Administrator\\go\\src\\go-demo-study\\for.go"
-
 	fmt.Println("请输入文件完整路径:")
 	var filename string
 	_,err := fmt.Scanln(&filename)

@@ -16,9 +16,7 @@ func main() {
 	defer listener.Close()
 	b := make([]byte,1024)
 
-	//0等待接受 1接收名字 2收内容 3完成
-	//status := 0;
-	//filename := ""
+
 	for {
 		conn,err := listener.Accept()
 		if err != nil {
