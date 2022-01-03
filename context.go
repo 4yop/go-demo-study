@@ -1,7 +1,11 @@
 package main
 
-import "context"
+import (
+	"context"
+	"fmt"
+)
 
 func main() {
-	context.Context()
+	c := context.Background()
+	fmt.Println(c)
 }
